@@ -1,13 +1,36 @@
 #!/bin/python
 
-start_name="mlhe" #"acdt93"
-stop_name="mlhe" #"zijianch"
-ignore_names = ['olsson']
+################################################################
+#To use this script:
+# 1. Prepare 3 folders referred to by variables turnin_dir, given_stuffs, extract_dir
+# 2. Set executing permission for the tester scripts.
+# 3. Set the list of students to be graded by setting start_name, stop_name variables.
+# 4. Ignore submissions (e.g. from instructor, TA) by setting variable ignore_names
+# 5. Run script by issue: python hw2.py
+# 6. Optional: If you want to print the list of students to be graded, change the entry point from __main__() to print_turnins()
+#	at the bottom of this file.
+	
+#MODIFY ME!!
+start_name="student_a"
+stop_name="student_z"
+ignore_names = ['instructor', 'ta']
 
-turnin_dir='/home/pdphuong/pl/F2016/grading_hw2/hw_dir' #"/home/pdphuong/ecs140a/hw2/ecs140a_hw2/"
-extract_dir="/home/pdphuong/pl/F2016/grading_hw2/sample_dir"
-given_stuffs="/home/pdphuong/pl/F2016/grading_hw2/tests_dir"
+#Folder consists of students' submissions
+turnin_dir="/cs140a/grading/turnin_dir"
+#This folder has a special structure. It consists of:
+#	+ folder student_a which consists of:
+#		+ file: student_a.tar.gz
 
+#Folder consists of given test cases, makefile, tester script, etc.
+#This folder has a special structure:
+#For HW2, this folder consists of:
+#	+ partXX folder: contains Makefile, tXXX.e, tXXX.correct, tXXX.correctStatus.
+#	+ File: tester, testerAddendum, HWDesc	
+given_stuffs="/cs140a/grading/given"
+
+#Folder to which a student's submission is extracted
+extract_dir="/cs140a/grading/extract_dir"
+################################################################
 
 import os
 from sys import stdin
